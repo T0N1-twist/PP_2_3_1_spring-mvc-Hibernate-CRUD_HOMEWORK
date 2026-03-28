@@ -15,7 +15,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan (basePackageClasses = {"web.model", "web.dao", "web.service"})
+@ComponentScan (basePackages = {"web.model", "web.dao", "web.service"})
 
 public class AppConfig {
 
@@ -24,8 +24,8 @@ public class AppConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/pp_users?useSSL=false&serverTimezone=UTC");
-        dataSource.setUsername("root");     // ← свой логин
-        dataSource.setPassword("rootPass");     // ← свой пароль
+        dataSource.setUsername("root");
+        dataSource.setPassword("rootPass");
         return dataSource;
     }
 
@@ -55,4 +55,4 @@ public class AppConfig {
 
     }
 
-}
+
