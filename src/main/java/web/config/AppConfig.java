@@ -16,7 +16,6 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan (basePackages = {"web.model", "web.dao", "web.service"})
-
 public class AppConfig {
 
     @Bean

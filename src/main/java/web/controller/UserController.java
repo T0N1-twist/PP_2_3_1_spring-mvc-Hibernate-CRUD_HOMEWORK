@@ -16,6 +16,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/users")
 public class UserController {
+
     private final UserService userService;
 
     @Autowired
@@ -29,15 +30,14 @@ public class UserController {
     }
 
     @GetMapping
-    public String usersPage(Model model) {
+    public String getUsersPage(Model model) {
         model.addAttribute("users", userService.getAllUsers());
         return "users";
     }
 
     @PostMapping("/add")
-    public String addUser(@RequestParam String username,
-                          @RequestParam int age) {
-        userService.saveUser(new User(username, age));
+    public String addUser(@RequestParam String username,@RequestParam int age) {
+        userService.addUser(username,age);
         return "redirect:/users";
     }
 
@@ -52,13 +52,9 @@ public class UserController {
     public String updateUser(@RequestParam Long id,
                              @RequestParam String username,
                              @RequestParam int age) {
-        User user = new User(username, age);
-        user.setId(id);
-        userService.saveUser(user);
+        userService.updateUserById(id,username,age);
         return "redirect:/users";
     }
-
-
 
 
 }
